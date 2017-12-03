@@ -11,7 +11,7 @@ $columns="";
 $values="";
 if(isset($_POST['name']))
 {
-    query($_POST,'godowns');
+    query('godowns');
 }
 ?>
       <div class="content-wrapper">
