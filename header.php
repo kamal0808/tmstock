@@ -13,18 +13,14 @@ if(!isset($_SESSION['password']))
 _END;
 }
 
-$dbhost='localhost';
-$dbname='tmstock';
-$dbuser='root';
-$dbpass='';
-//$dbhost='MYSQL5012.HostBuddy.com';
-//$dbname='db_9df6bb_mydb';
-//$dbuser='9df6bb_mydb';
-//$dbpass='KAMALKHATWANI';
+$dbhost=getenv('DB_HOST');
+$dbname=getenv('DB_NAME');
+$dbuser=  getenv('DB_USER');
+$dbpass=  getenv('DB_PASS');
+$dbport = getenv('DB_PORT');
 $appname='TMStock';
 global $con;
-$con=mysqli_connect($dbhost,$dbuser,$dbpass);
-mysqli_select_db($con,$dbname);
+$con=mysqli_connect($dbhost,$dbuser,$dbpass, $dbname, $dbport);
 function destroySession()
 {
     session_start();
