@@ -12,7 +12,7 @@ $values="";
 if(isset($_POST['username']))
 {
     $_POST['password']=salt($_POST['password']);
-    query($_POST,'users');
+    query('users');
 }
 
 ?>

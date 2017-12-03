@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'config.php';
 if(!isset($_SESSION['password']))
 {
     echo<<<_END
@@ -13,11 +14,11 @@ if(!isset($_SESSION['password']))
 _END;
 }
 
-$dbhost=getenv('DB_HOST');
-$dbname=getenv('DB_NAME');
-$dbuser=  getenv('DB_USER');
-$dbpass=  getenv('DB_PASS');
-$dbport = getenv('DB_PORT');
+$dbhost=$_ENV['DB_HOST'];
+$dbname=$_ENV['DB_NAME'];
+$dbuser=  $_ENV['DB_USER'];
+$dbpass=  $_ENV['DB_PASS'];
+$dbport = $_ENV['DB_PORT'];
 $appname='TMStock';
 global $con;
 $con=mysqli_connect($dbhost,$dbuser,$dbpass, $dbname, $dbport);
@@ -117,7 +118,6 @@ function query($table)
     $columns=columns($_POST);
     $values=values($_POST);
     $query="Insert into $table($columns) values($values)";
-    
     $result=  queryMysql($query);
 }
 

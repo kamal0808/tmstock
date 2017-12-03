@@ -11,7 +11,7 @@ $columns="";
 $values="";
 if(isset($_POST['name']))
 {
-    query($_POST,'managers');
+    query('managers');
 }
 
 ?>
