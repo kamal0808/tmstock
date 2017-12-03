@@ -39,7 +39,7 @@ if(isset($_POST['username']))
             <section class="content">
                 <div class="login-box">
                   <div class="login-logo">
-                      <b>Khandelwal Decorators</b>
+                      <b>TMStock</b>
                   </div><!-- /.login-logo -->
                   <div class="login-box-body">
             <!--        <p class="login-box-msg">Sign in to start your session</p>-->
