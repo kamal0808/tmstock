@@ -1,0 +1,58 @@
+/* 
+    Document   : tmstock
+    Created on : Jun 8, 2015, 12:08:15 PM
+    Author     : The Makers Web
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+.business-options
+{
+    margin: 7% auto;
+    width: 500px;
+}
+
+.business-page
+{
+    background-color: #ecf0f5;
+}
+
+div.dataTables_filter label
+{
+    float:left!important;
+}
+
+.logout
+{
+    min-height: 250px;
+    margin: 7% auto;
+    padding: 15px;
+}
+
+a:focus
+{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.modal-content
+{
+    width: 650px;
+}
+
+@media print
+{
+    input[aria-controls="example1"]
+    {
+        display: none;
+    }
+}

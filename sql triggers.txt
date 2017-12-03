@@ -1,0 +1,35 @@
+trigger orderitemsdelete
+
+delimiter $$
+create trigger orderitemsdelete before delete on orders
+for each row
+begin
+  declare my_itemid,my_quantity int default 0;
+  declare done boolean default false;
+  declare orderitemscursor cursor for
+    select itemid,quantity from orderitems where orderid=old.orderid;
+  declare continue handler for not found set done=true;
+  open orderitemscursor;
+  read_loop: LOOP
+    fetch orderitemscursor into my_itemid,my_quantity;
+    if done then
+      leave read_loop;
+     end if;
+    update items set quantity=quantity+my_quantity where itemid=my_itemid;
+  end loop read_loop;
+  close orderitemscursor;
+end$$
+
+
+
+trigger orderitemsinsert
+
+create trigger orderitemsinsert after insert on orderitems
+for each row
+update items set quantity=quantity-new.quantity where itemid=new.itemid;
+
+trigger orderitemsupdate
+
+create trigger orderitemsupdate before delete on orderitems
+for each row
+update items set quantity=quantity+old.quantity where itemid=old.itemid;
