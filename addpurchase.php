@@ -25,8 +25,8 @@ if(isset($_POST['purchasedate']))
         $itemid=$_POST['itemid'][$index++];
         $query="Insert into purchaseitems(quantity,itemid,purchaseid) values($quantity,$itemid,$purchaseid)";
         $result=queryMysql($query);
-//        $query="Update items set quantity=quantity+$quantity where itemid=$itemid";
-//        $result=queryMysql($query);
+        $query="Update items set quantity=quantity+$quantity where itemid=$itemid";
+        $result=queryMysql($query);
     }
 }
 ?>

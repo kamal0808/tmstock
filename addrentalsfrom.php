@@ -27,8 +27,8 @@ if(isset($_POST['date']))
         $itemid=$_POST['itemid'][$index++];
         $query="Insert into rentalsfromitems(quantity,itemid,rentalsfromid) values($quantity,$itemid,$rentalsfromid)";
         $result=queryMysql($query);
-//        $query="Update items set quantity=quantity+$quantity where itemid=$itemid";
-//        $result=queryMysql($query);
+        $query="Update items set quantity=quantity+$quantity where itemid=$itemid";
+        $result=queryMysql($query);
     }
 }
 ?>
