@@ -26,9 +26,8 @@ if(isset($_POST['orderdate']))
         $itemid=$_POST['itemid'][$index++];
         $query="Insert into orderitems(quantity,itemid,orderid) values($quantity,$itemid,$orderid)";
         $result=queryMysql($query);
-//        $query="Update items set quantity=quantity-$quantity where itemid=$itemid";
-//        $result=queryMysql($query);
-        
+        $query="Update items set quantity=quantity-$quantity where itemid=$itemid";
+        $result=queryMysql($query);
     }
 }
 ?>
